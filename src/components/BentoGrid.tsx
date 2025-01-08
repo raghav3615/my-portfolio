@@ -102,7 +102,7 @@
                 {/* Profile Image */}
                 <div className={`${cardBg} rounded-2xl col-span-3 overflow-hidden transition-colors duration-200`}>
                 <img
-                    src="dp 2.jpg"
+                    src="dp1.jpg"
                     alt="Profile"
                     className="w-full h-full object-cover"
                 />
