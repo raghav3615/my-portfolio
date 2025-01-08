@@ -1,13 +1,12 @@
-    "use client"
+"use client"
 
-    import React, { useState } from 'react';
-    import { Mail, Twitter, Instagram, Linkedin, Github ,Slack, ArrowUpRight, Moon, Sun, Copy, Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Twitter, Instagram, Linkedin, Github, Slack, ArrowUpRight, Moon, Sun, Copy, Check } from 'lucide-react';
 
-    const BentoGrid = () => {
-        const [darkMode, setDarkMode] = React.useState(true);
-        const [copied, setCopied] = useState(false);
-        const [isHovered, setIsHovered] = useState(false);
-        const email = "dadhichraghav896@gmail.com";
+const BentoGrid = () => {
+    const [darkMode, setDarkMode] = React.useState(true);
+    const [copied, setCopied] = useState(false);
+    const email = "dadhichraghav896@gmail.com";
 
     const bgColor = darkMode ? 'bg-neutral-900' : 'bg-gray-100';
     const cardBg = darkMode ? 'bg-[#1C1C1E]' : 'bg-white';
@@ -16,6 +15,21 @@
     const inputBg = darkMode ? 'bg-[#2C2C2E]' : 'bg-gray-100';
     const borderColor = darkMode ? 'border-[#2C2C2E]' : 'border-gray-200';
 
+    const projects = [
+        {
+          id: 1,
+          name: "Dark Interface",
+          url: "https://screen-recorder-navy.vercel.app/",
+          image: "screen recording.png",
+        },
+        {
+          id: 2,
+          name: "Mobile Interface",
+          url: "https://nextjs-animation-website.vercel.app/",
+          image: "landingpage.jpg",
+        },
+    ];
+      
     const handleCopyEmail = async () => {
         try {
         await navigator.clipboard.writeText(email);
@@ -62,7 +76,7 @@
             </svg>
           )
         }
-      ];
+    ];
 
     return (
         <div className={`min-h-screen p-8 ${bgColor} transition-colors duration-200`}>
@@ -74,7 +88,7 @@
                 <div className={`${cardBg} p-6 rounded-2xl col-span-6 transition-colors duration-200`}>
                 <h1 className={`text-xl ${textColor} font-normal mb-2`}>Hi, I'm Raghav —</h1>
                 <p className={mutedText}>
-                    Web Developer & AI enthusiast, pursuing CSE undergrad from{' '}
+                    Web Developer & AI engineer, pursuing CSE undergrad from{' '}
                     <a href="#" className="underline">
                     VIT Bhopal
                     </a>{' '}
@@ -83,21 +97,26 @@
                 </div>
 
                 {/* Project Previews */}
-                <div className={`${cardBg} rounded-2xl col-span-3 overflow-hidden transition-colors duration-200`}>
-                <img
-                    src="/api/placeholder/300/300"
-                    alt="Dark interface"
-                    className="w-full h-full object-cover"
-                />
-                </div>
-
-                <div className={`${cardBg} rounded-2xl col-span-3 overflow-hidden transition-colors duration-200`}>
-                <img
-                    src="/api/placeholder/300/300"
-                    alt="Mobile interface"
-                    className="w-full h-full object-cover"
-                />
-                </div>
+                {projects.map((project) => (
+                  <div 
+                    key={project.id}
+                    className={`${cardBg} rounded-2xl col-span-3 overflow-hidden relative transition-colors duration-200 group cursor-pointer`}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <a 
+                      href={project.url}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={`absolute inset-0 bg-black/60 flex items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100`}
+                    >
+                      <p className={`${textColor} text-lg font-medium`}>Check out project</p>
+                    </a>
+                  </div>
+                ))}
 
                 {/* Profile Image */}
                 <div className={`${cardBg} rounded-2xl col-span-3 overflow-hidden transition-colors duration-200`}>
@@ -121,29 +140,25 @@
 
                 {/* Laptop Preview */}
                 <div 
-              className={`${cardBg} rounded-2xl col-span-5 overflow-hidden relative transition-colors duration-200 group cursor-pointer`}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <img
-                src="project.png"
-                alt="Laptop interface"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              
-              {/* Hover Overlay */}
-              <a 
-                href="https://docs.google.com/spreadsheets/d/1ZE_633UFH0D7slNLdZEoEmgscjv3UfzG7A0rdjqp-pU/edit?gid=0#gid=0" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className={`absolute inset-0 bg-black/60 flex flex-col items-center justify-center transition-opacity duration-300 ${
-                  isHovered ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                <p className={`${textColor} text-lg font-medium mb-2`}>More Projects</p>
-                <ArrowUpRight className={textColor} size={24} />
-              </a>
-            </div>
+                  className={`${cardBg} rounded-2xl col-span-5 overflow-hidden relative transition-colors duration-200 group cursor-pointer`}
+                >
+                  <img
+                    src="project.png"
+                    alt="Laptop interface"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  
+                  {/* Hover Overlay */}
+                  <a 
+                    href="https://docs.google.com/spreadsheets/d/1ZE_633UFH0D7slNLdZEoEmgscjv3UfzG7A0rdjqp-pU/edit?gid=0#gid=0" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  >
+                    <p className={`${textColor} text-lg font-medium mb-2`}>More Projects</p>
+                    <ArrowUpRight className={textColor} size={24} />
+                  </a>
+                </div>
 
                 {/* Newsletter */}
                 <div className={`${cardBg} p-5 rounded-2xl col-span-6 transition-colors duration-200`}>
@@ -175,7 +190,6 @@
             ))}
             </div>
         </div>
-
 
                 {/* Theme Toggle */}
                 <div className={`${cardBg} rounded-2xl col-span-1 flex items-center justify-center transition-colors duration-200`}>
@@ -230,6 +244,7 @@
         </div>
         </div>
     );
-    };
+};
 
-    export default BentoGrid;
+export default BentoGrid;
+
