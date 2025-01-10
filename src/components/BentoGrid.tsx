@@ -213,12 +213,12 @@ const BentoGrid = () => {
                     {/* Social Links Grid */}
                     <div className="grid grid-cols-6 gap-2 md:gap-3 mt-2 md:mt-3">
                         {[
-                            { icon: Twitter, link: "#" },
-                            { icon: Github, link: "#" },
-                            { icon: Instagram, link: "#" },
-                            { icon: Linkedin, link: "#" },
+                            { icon: Twitter, link: "https://x.com/raghav_dadhich" },
+                            { icon: Github, link: "https://github.com/raghav3615" },
+                            { icon: Instagram, link: "https://www.instagram.com/itzraghavgod/" },
+                            { icon: Linkedin, link: "https://www.linkedin.com/in/raghavhere/" },
                             { icon: Slack, link: "#" },
-                            { icon: Mail, link: "#" }
+                            { icon: Mail, link: "mailto:dadhichraghav896@gmail.com" }
                         ].map((social, index) => (
                             <a
                                 key={index}
