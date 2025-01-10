@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Mail, Twitter, Instagram, Linkedin, Github, Slack, ArrowUpRight, Moon, Sun, Copy, Check } from 'lucide-react';
+import { FaDiscord as Discord } from "react-icons/fa";
 
 const BentoGrid = () => {
     const [darkMode, setDarkMode] = useState(true);
@@ -217,7 +218,7 @@ const BentoGrid = () => {
                             { icon: Github, link: "https://github.com/raghav3615" },
                             { icon: Instagram, link: "https://www.instagram.com/itzraghavgod/" },
                             { icon: Linkedin, link: "https://www.linkedin.com/in/raghavhere/" },
-                            { icon: Slack, link: "#" },
+                            { icon: Discord, link: "https://discord.com/users/ragzuss" },
                             { icon: Mail, link: "mailto:dadhichraghav896@gmail.com" }
                         ].map((social, index) => (
                             <a
