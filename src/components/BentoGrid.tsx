@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Mail, Twitter, Instagram, Linkedin, Github, Slack, ArrowUpRight, Moon, Sun, Copy, Check } from 'lucide-react';
 
 const BentoGrid = () => {
-    const [darkMode, setDarkMode] = React.useState(true);
+    const [darkMode, setDarkMode] = useState(true);
     const [copied, setCopied] = useState(false);
     const email = "dadhichraghav896@gmail.com";
 
@@ -32,15 +32,14 @@ const BentoGrid = () => {
       
     const handleCopyEmail = async () => {
         try {
-        await navigator.clipboard.writeText(email);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+            await navigator.clipboard.writeText(email);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
         } catch (err) {
-        console.error('Failed to copy email:', err);
+            console.error('Failed to copy email:', err);
         }
     };
 
-    // Tech stack data with SVG icons
     const techStack = [
         {
           name: 'TypeScript',
@@ -79,172 +78,161 @@ const BentoGrid = () => {
     ];
 
     return (
-        <div className={`min-h-screen p-8 ${bgColor} transition-colors duration-200`}>
-        <div className="max-w-4xl mx-auto">
-            {/* Main Container with Border */}
-            <div className={`border ${borderColor} rounded-3xl p-4 bg-[#141414] transition-all duration-200`}>
-            <div className="grid grid-cols-12 gap-3">
-                {/* Intro Card */}
-                <div className={`${cardBg} p-6 rounded-2xl col-span-6 transition-colors duration-200`}>
-                <h1 className={`text-xl ${textColor} font-normal mb-2`}>Hi, I'm Raghav —</h1>
-                <p className={mutedText}>
-                    Web Developer & AI engineer, pursuing CSE undergrad from{' '}
-                    <a href="#" className="underline">
-                    VIT Bhopal
-                    </a>{' '}
-                    based in India
-                </p>
-                </div>
+        <div className={`min-h-screen p-4 md:p-8 ${bgColor} transition-colors duration-200`}>
+            <div className="max-w-4xl mx-auto">
+                <div className={`border ${borderColor} rounded-3xl p-2 md:p-4 bg-[#141414] transition-all duration-200`}>
+                    <div className="grid grid-cols-4 md:grid-cols-12 gap-2 md:gap-3">
+                        {/* Intro Card */}
+                        <div className={`${cardBg} p-4 md:p-6 rounded-2xl col-span-4 md:col-span-6 transition-colors duration-200`}>
+                            <h1 className={`text-lg md:text-xl ${textColor} font-normal mb-2`}>Hi, I'm Raghav —</h1>
+                            <p className={`${mutedText} text-sm md:text-base`}>
+                                Web Developer & AI engineer, pursuing CSE undergrad from{' '}
+                                <a href="#" className="underline">VIT Bhopal</a>{' '}
+                                based in India
+                            </p>
+                        </div>
 
-                {/* Project Previews */}
-                {projects.map((project) => (
-                  <div 
-                    key={project.id}
-                    className={`${cardBg} rounded-2xl col-span-3 overflow-hidden relative transition-colors duration-200 group cursor-pointer`}
-                  >
-                    <img
-                      src={project.image}
-                      alt={project.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    <a 
-                      href={project.url}
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className={`absolute inset-0 bg-black/60 flex items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100`}
-                    >
-                      <p className={`${textColor} text-lg font-medium`}>Check out project</p>
-                    </a>
-                  </div>
-                ))}
+                        {/* Project Previews - Stack on mobile */}
+                        {projects.map((project) => (
+                            <div 
+                                key={project.id}
+                                className={`${cardBg} rounded-2xl col-span-2 md:col-span-3 overflow-hidden relative transition-colors duration-200 group cursor-pointer aspect-square`}
+                            >
+                                <img
+                                    src={project.image}
+                                    alt={project.name}
+                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                                <a 
+                                    href={project.url}
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="absolute inset-0 bg-black/60 flex items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                                >
+                                    <p className={`${textColor} text-sm md:text-lg font-medium text-center px-2`}>Check out project</p>
+                                </a>
+                            </div>
+                        ))}
 
-                {/* Profile Image */}
-                <div className={`${cardBg} rounded-2xl col-span-3 overflow-hidden transition-colors duration-200`}>
-                <img
-                    src="dp1.jpg"
-                    alt="Profile"
-                    className="w-full h-full object-cover"
-                />
-                </div>
+                        {/* Profile Image */}
+                        <div className={`${cardBg} rounded-2xl col-span-4 md:col-span-3 aspect-square overflow-hidden transition-colors duration-200`}>
+                            <img
+                                src="dp1.jpg"
+                                alt="Profile"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
 
-                {/* About Section */}
-                <div className={`${cardBg} p-5 rounded-2xl col-span-4 flex flex-col justify-between transition-colors duration-200`}>
-                <div>
-                    <p className={`${mutedText} text-xs uppercase tracking-wider mb-3`}>ABOUT</p>
-                    <p className={`${textColor} text-sm`}>Passionate about AI and enjoy solving problems.</p>
-                </div>
-                <div className="flex justify-end">
-                    <ArrowUpRight className={mutedText} size={16} />
-                </div>
-                </div>
+                        {/* About Section */}
+                        <div className={`${cardBg} p-4 md:p-5 rounded-2xl col-span-4 md:col-span-4 flex flex-col justify-between transition-colors duration-200`}>
+                            <div>
+                                <p className={`${mutedText} text-xs uppercase tracking-wider mb-3`}>ABOUT</p>
+                                <p className={`${textColor} text-sm`}>Passionate about AI and enjoy solving problems.</p>
+                            </div>
+                            <div className="flex justify-end">
+                                <ArrowUpRight className={mutedText} size={16} />
+                            </div>
+                        </div>
 
-                {/* Laptop Preview */}
-                <div 
-                  className={`${cardBg} rounded-2xl col-span-5 overflow-hidden relative transition-colors duration-200 group cursor-pointer`}
-                >
-                  <img
-                    src="project.png"
-                    alt="Laptop interface"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  
-                  {/* Hover Overlay */}
-                  <a 
-                    href="https://docs.google.com/spreadsheets/d/1ZE_633UFH0D7slNLdZEoEmgscjv3UfzG7A0rdjqp-pU/edit?gid=0#gid=0" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  >
-                    <p className={`${textColor} text-lg font-medium mb-2`}>More Projects</p>
-                    <ArrowUpRight className={textColor} size={24} />
-                  </a>
-                </div>
+                        {/* Laptop Preview */}
+                        <div className={`${cardBg} rounded-2xl col-span-4 md:col-span-5 overflow-hidden relative transition-colors duration-200 group cursor-pointer aspect-video md:aspect-auto`}>
+                            <img
+                                src="project.png"
+                                alt="Laptop interface"
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <a 
+                                href="https://docs.google.com/spreadsheets/d/1ZE_633UFH0D7slNLdZEoEmgscjv3UfzG7A0rdjqp-pU/edit?gid=0#gid=0" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                            >
+                                <p className={`${textColor} text-sm md:text-lg font-medium mb-2`}>More Projects</p>
+                                <ArrowUpRight className={textColor} size={24} />
+                            </a>
+                        </div>
 
-                {/* Newsletter */}
-                <div className={`${cardBg} p-5 rounded-2xl col-span-6 transition-colors duration-200`}>
-                <p className={`${textColor} text-sm mb-3`}>Get design tips & guides straight to your inbox for free!</p>
-                <div className="flex gap-2">
-                    <input
-                    type="email"
-                    placeholder="Your email address"
-                    className={`flex-1 ${inputBg} text-sm rounded-lg px-4 py-2 ${textColor} border-0`}
-                    />
-                    <button className="bg-white text-black px-4 py-2 text-sm rounded-lg hover:bg-gray-100 transition-colors">
-                    Subscribe
-                    </button>
-                </div>
-                </div>
+                        {/* Newsletter */}
+                        <div className={`${cardBg} p-4 md:p-5 rounded-2xl col-span-4 md:col-span-6 transition-colors duration-200`}>
+                            <p className={`${textColor} text-sm mb-3`}>Get design tips & guides straight to your inbox for free!</p>
+                            <div className="flex flex-col md:flex-row gap-2">
+                                <input
+                                    type="email"
+                                    placeholder="Your email address"
+                                    className={`flex-1 ${inputBg} text-sm rounded-lg px-4 py-2 ${textColor} border-0`}
+                                />
+                                <button className="bg-white text-black px-4 py-2 text-sm rounded-lg hover:bg-gray-100 transition-colors">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </div>
 
-                {/* Tech Stack */}
-                <div className={`${cardBg} p-5 rounded-2xl col-span-3 transition-colors duration-200`}>
-            <p className={`${mutedText} text-xs uppercase tracking-wider mb-3`}>Stack I use</p>
-            <div className="flex gap-2">
-            {techStack.map((tech) => (
-                <div 
-                key={tech.name} 
-                className={`w-8 h-8 ${inputBg} rounded-lg flex items-center justify-center transition-all hover:scale-105`}
-                title={tech.name}
-                >
-                {tech.icon}
-                </div>
-            ))}
-            </div>
-        </div>
+                        {/* Tech Stack */}
+                        <div className={`${cardBg} p-4 md:p-5 rounded-2xl col-span-4 md:col-span-3 transition-colors duration-200`}>
+                            <p className={`${mutedText} text-xs uppercase tracking-wider mb-3`}>Stack I use</p>
+                            <div className="flex flex-wrap gap-2">
+                                {techStack.map((tech) => (
+                                    <div 
+                                        key={tech.name} 
+                                        className={`w-8 h-8 ${inputBg} rounded-lg flex items-center justify-center transition-all hover:scale-105`}
+                                        title={tech.name}
+                                    >
+                                        {tech.icon}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
 
-                {/* Theme Toggle */}
-                <div className={`${cardBg} rounded-2xl col-span-1 flex items-center justify-center transition-colors duration-200`}>
-                <button
-                    onClick={() => setDarkMode(!darkMode)}
-                    className="w-full h-full flex items-center justify-center"
-                >
-                    <Moon size={16} className={textColor} />
-                </button>
-                </div>
+                        {/* Theme Toggle */}
+                        <div className={`${cardBg} rounded-2xl col-span-2 md:col-span-1 flex items-center justify-center transition-colors duration-200`}>
+                            <button
+                                onClick={() => setDarkMode(!darkMode)}
+                                className="w-full h-full flex items-center justify-center p-4"
+                            >
+                                <Moon size={16} className={textColor} />
+                            </button>
+                        </div>
 
-                {/* Contact */}
-                <div className={`${cardBg} p-5 rounded-2xl col-span-2 transition-colors duration-200`}>
-                <p className={`${textColor} text-sm mb-2`}>Have a project in mind?</p>
-                <button 
-            onClick={handleCopyEmail}
-            className={`flex items-center gap-2 ${mutedText} text-sm hover:${textColor} transition-colors group`}
-            >
-            <span>{copied ? 'Copied!' : 'Copy email'}</span>
-            {copied ? (
-                <Check size={14} className="text-green-500" />
-            ) : (
-                <Copy size={14} className={`${mutedText} group-hover:${textColor}`} />
-            )}
-            </button>
-                </div>
-            </div>
+                        {/* Contact */}
+                        <div className={`${cardBg} p-4 md:p-5 rounded-2xl col-span-2 md:col-span-2 transition-colors duration-200`}>
+                            <p className={`${textColor} text-sm mb-2`}>Have a project in mind?</p>
+                            <button 
+                                onClick={handleCopyEmail}
+                                className={`flex items-center gap-2 ${mutedText} text-sm hover:${textColor} transition-colors group`}
+                            >
+                                <span>{copied ? 'Copied!' : 'Copy email'}</span>
+                                {copied ? (
+                                    <Check size={14} className="text-green-500" />
+                                ) : (
+                                    <Copy size={14} className={`${mutedText} group-hover:${textColor}`} />
+                                )}
+                            </button>
+                        </div>
+                    </div>
 
-            {/* Social Links Grid */}
-            <div className="grid grid-cols-6 gap-3 mt-3">
-                <div className={`${cardBg} rounded-lg p-2 flex items-center justify-center transition-colors duration-200`}>
-                <Twitter size={16} className={mutedText} />
-                </div>
-                <div className={`${cardBg} rounded-lg p-2 flex items-center justify-center transition-colors duration-200`}>
-                <Github size={16} className={mutedText} />
-                </div>
-                <div className={`${cardBg} rounded-lg p-2 flex items-center justify-center transition-colors duration-200`}>
-                <Instagram size={16} className={mutedText} />
-                </div>
-                <div className={`${cardBg} rounded-lg p-2 flex items-center justify-center transition-colors duration-200`}>
-                <Linkedin size={16} className={mutedText} />
-                </div>
-                <div className={`${cardBg} rounded-lg p-2 flex items-center justify-center transition-colors duration-200`}>
-                <Slack size={16} className={mutedText} />
-                </div>
-                <div className={`${cardBg} rounded-lg p-2 flex items-center justify-center transition-colors duration-200`}>
-                <Mail size={16} className={mutedText} />
+                    {/* Social Links Grid */}
+                    <div className="grid grid-cols-6 gap-2 md:gap-3 mt-2 md:mt-3">
+                        {[
+                            { icon: Twitter, link: "#" },
+                            { icon: Github, link: "#" },
+                            { icon: Instagram, link: "#" },
+                            { icon: Linkedin, link: "#" },
+                            { icon: Slack, link: "#" },
+                            { icon: Mail, link: "#" }
+                        ].map((social, index) => (
+                            <a
+                                key={index}
+                                href={social.link}
+                                className={`${cardBg} rounded-lg p-2 flex items-center justify-center transition-colors duration-200 hover:opacity-80`}
+                            >
+                                <social.icon size={16} className={mutedText} />
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </div>
-
-            </div>
-        </div>
         </div>
     );
 };
 
 export default BentoGrid;
-
