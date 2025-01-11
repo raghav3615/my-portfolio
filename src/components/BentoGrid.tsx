@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Mail, Twitter, Instagram, Linkedin, Github, Slack, ArrowUpRight, Moon, Sun, Copy, Check } from 'lucide-react';
 import { FaDiscord as Discord } from "react-icons/fa";
 
@@ -125,15 +126,17 @@ const BentoGrid = () => {
                         </div>
 
                         {/* About Section */}
-                        <div className={`${cardBg} p-4 md:p-5 rounded-2xl col-span-4 md:col-span-4 flex flex-col justify-between transition-colors duration-200`}>
-                            <div>
-                                <p className={`${mutedText} text-xs uppercase tracking-wider mb-3`}>ABOUT</p>
-                                <p className={`${textColor} text-sm`}>Passionate about AI and enjoy solving problems.</p>
+                        <Link href="/about" className="col-span-4 md:col-span-4">
+                            <div className={`${cardBg} p-4 md:p-5 rounded-2xl h-full flex flex-col justify-between transition-colors duration-200 cursor-pointer hover:opacity-90`}>
+                                <div>
+                                    <p className={`${mutedText} text-xs uppercase tracking-wider mb-3`}>ABOUT</p>
+                                    <p className={`${textColor} text-sm`}>Passionate about AI and enjoy solving problems.</p>
+                                </div>
+                                <div className="flex justify-end">
+                                    <ArrowUpRight className={mutedText} size={16} />
+                                </div>
                             </div>
-                            <div className="flex justify-end">
-                                <ArrowUpRight className={mutedText} size={16} />
-                            </div>
-                        </div>
+                        </Link>
 
                         {/* Laptop Preview */}
                         <div className={`${cardBg} rounded-2xl col-span-4 md:col-span-5 overflow-hidden relative transition-colors duration-200 group cursor-pointer aspect-video md:aspect-auto`}>
