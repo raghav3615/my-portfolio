@@ -129,7 +129,7 @@ const BentoGrid = () => {
                         <Link href="/about" className="col-span-4 md:col-span-4">
                             <div className={`${cardBg} p-4 md:p-5 rounded-2xl h-full flex flex-col justify-between transition-colors duration-200 cursor-pointer hover:opacity-90`}>
                                 <div>
-                                    <p className={`${mutedText} text-xs uppercase tracking-wider mb-3`}>ABOUT</p>
+                                    <p className={`${mutedText} text-xs uppercase tracking-wider mb-3`}>ABOUT ME</p>
                                     <p className={`${textColor} text-sm`}>Passionate about AI and enjoy solving problems.</p>
                                 </div>
                                 <div className="flex justify-end">
@@ -139,22 +139,17 @@ const BentoGrid = () => {
                         </Link>
 
                         {/* Laptop Preview */}
-                        <div className={`${cardBg} rounded-2xl col-span-4 md:col-span-5 overflow-hidden relative transition-colors duration-200 group cursor-pointer aspect-video md:aspect-auto`}>
+                        <Link href="/Experience" className={`${cardBg} rounded-2xl col-span-4 md:col-span-5 overflow-hidden relative transition-colors duration-200 group cursor-pointer aspect-video md:aspect-auto`}>
                             <img
                                 src="project.png"
                                 alt="Laptop interface"
                                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                             />
-                            <a 
-                                href="https://docs.google.com/spreadsheets/d/1ZE_633UFH0D7slNLdZEoEmgscjv3UfzG7A0rdjqp-pU/edit?gid=0#gid=0" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                            >
-                                <p className={`${textColor} text-sm md:text-lg font-medium mb-2`}>More Projects</p>
+                            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                <p className={`${textColor} text-sm md:text-lg font-medium mb-2`}>Work Experience</p>
                                 <ArrowUpRight className={textColor} size={24} />
-                            </a>
-                        </div>
+                            </div>
+                        </Link>
 
                         {/* Newsletter */}
                         <div className={`${cardBg} p-4 md:p-5 rounded-2xl col-span-4 md:col-span-6 transition-colors duration-200`}>
