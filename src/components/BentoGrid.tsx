@@ -27,7 +27,7 @@ const BentoGrid = () => {
         {
           id: 2,
           name: "Mobile Interface",
-          url: "https://nextjs-animation-website.vercel.app/",
+          url: "https://docs.google.com/spreadsheets/d/1ZE_633UFH0D7slNLdZEoEmgscjv3UfzG7A0rdjqp-pU/edit?gid=0#gid=0",
           image: "landingpage.jpg",
         },
     ];
