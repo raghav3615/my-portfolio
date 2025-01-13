@@ -86,12 +86,26 @@ const BentoGrid = () => {
                     <div className="grid grid-cols-4 md:grid-cols-12 gap-2 md:gap-3">
                         {/* Intro Card */}
                         <div className={`${cardBg} p-4 md:p-6 rounded-2xl col-span-4 md:col-span-6 transition-colors duration-200`}>
-                            <h1 className={`text-lg md:text-xl ${textColor} font-normal mb-2`}>Hi, I'm Raghav —</h1>
-                            <p className={`${mutedText} text-sm md:text-base`}>
-                                Web Developer & AI engineer, pursuing CSE undergrad from{' '}
-                                <a href="#" className="underline">VIT Bhopal</a>{' '}
-                                based in India
-                            </p>
+                            <div className="flex items-center gap-4">
+                                {/* Profile Image */}
+                                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden flex-shrink-0">
+                                    <img
+                                        src="dp1.jpg"
+                                        alt="Profile"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                
+                                {/* Intro Text */}
+                                <div>
+                                    <h1 className={`text-lg md:text-xl ${textColor} font-normal mb-2`}>Hi, I'm Raghav —</h1>
+                                    <p className={`${mutedText} text-sm md:text-base`}>
+                                        Web Developer & AI engineer, pursuing CSE undergrad from{' '}
+                                        <a href="#" className="underline">VIT Bhopal</a>{' '}
+                                        based in India
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Project Previews - Stack on mobile */}
@@ -116,21 +130,14 @@ const BentoGrid = () => {
                             </div>
                         ))}
 
-                        {/* Profile Image */}
-                        <div className={`${cardBg} rounded-2xl col-span-4 md:col-span-3 aspect-square overflow-hidden transition-colors duration-200`}>
-                            <img
-                                src="dp1.jpg"
-                                alt="Profile"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
+                        
 
                         {/* About Section */}
-                        <Link href="/about" className="col-span-4 md:col-span-4">
+                        <Link href="/about" className="col-span-4 md:col-span-5">
                             <div className={`${cardBg} p-4 md:p-5 rounded-2xl h-full flex flex-col justify-between transition-colors duration-200 cursor-pointer hover:opacity-90`}>
                                 <div>
                                     <p className={`${mutedText} text-xs uppercase tracking-wider mb-3`}>ABOUT ME</p>
-                                    <p className={`${textColor} text-sm`}>Passionate about AI and enjoy solving problems.</p>
+                                    <p className={`${textColor} text-sm`}>Passionate about AI and enjoy solving problems. I specialize in building modern web applications using technologies like React, Next.js, and Node.js.</p>
                                 </div>
                                 <div className="flex justify-end">
                                     <ArrowUpRight className={mutedText} size={16} />
@@ -150,6 +157,26 @@ const BentoGrid = () => {
                                 <ArrowUpRight className={textColor} size={24} />
                             </div>
                         </Link>
+
+                        {/* Social Links Grid */}
+                        <div className="col-span-4 md:col-span-2 grid grid-cols-2 gap-2 md:gap-3">
+                            {[
+                                { icon: Twitter, link: "https://x.com/raghav_dadhich" },
+                                { icon: Github, link: "https://github.com/raghav3615" },
+                                { icon: Instagram, link: "https://www.instagram.com/itzraghavgod/" },
+                                { icon: Linkedin, link: "https://www.linkedin.com/in/raghavhere/" },
+                                { icon: Discord, link: "https://discord.com/users/ragzuss" },
+                                { icon: Mail, link: "mailto:dadhichraghav896@gmail.com" }
+                            ].map((social, index) => (
+                                <a
+                                    key={index}
+                                    href={social.link}
+                                    className={`${cardBg} rounded-lg p-2 flex items-center justify-center transition-colors duration-200 hover:opacity-80`}
+                                >
+                                    <social.icon size={16} className={mutedText} />
+                                </a>
+                            ))}
+                        </div>
 
                         {/* Newsletter */}
                         <div className={`${cardBg} p-4 md:p-5 rounded-2xl col-span-4 md:col-span-6 transition-colors duration-200`}>
@@ -209,25 +236,7 @@ const BentoGrid = () => {
                         </div>
                     </div>
 
-                    {/* Social Links Grid */}
-                    <div className="grid grid-cols-6 gap-2 md:gap-3 mt-2 md:mt-3">
-                        {[
-                            { icon: Twitter, link: "https://x.com/raghav_dadhich" },
-                            { icon: Github, link: "https://github.com/raghav3615" },
-                            { icon: Instagram, link: "https://www.instagram.com/itzraghavgod/" },
-                            { icon: Linkedin, link: "https://www.linkedin.com/in/raghavhere/" },
-                            { icon: Discord, link: "https://discord.com/users/ragzuss" },
-                            { icon: Mail, link: "mailto:dadhichraghav896@gmail.com" }
-                        ].map((social, index) => (
-                            <a
-                                key={index}
-                                href={social.link}
-                                className={`${cardBg} rounded-lg p-2 flex items-center justify-center transition-colors duration-200 hover:opacity-80`}
-                            >
-                                <social.icon size={16} className={mutedText} />
-                            </a>
-                        ))}
-                    </div>
+                    
                 </div>
             </div>
         </div>
