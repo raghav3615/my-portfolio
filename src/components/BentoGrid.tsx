@@ -173,7 +173,7 @@ const BentoGrid = () => {
                                     href={social.link}
                                     className={`${cardBg} rounded-lg p-2 flex items-center justify-center transition-colors duration-200 hover:opacity-80`}
                                 >
-                                    <social.icon size={16} className={mutedText} />
+                                    <social.icon size={20} className={mutedText} />
                                 </a>
                             ))}
                         </div>
