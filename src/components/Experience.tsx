@@ -15,39 +15,39 @@ const Experience = () => {
 
     const experiences = [
         {
-            company: "Company One",
-            role: "AI Engineer",
-            duration: "Jan 2023 - Present",
-            description: "Led the development of machine learning models for natural language processing. Implemented deep learning solutions using PyTorch and TensorFlow.",
-            logo: "/company1-logo.png" // Replace with actual logo path
+            company: "Doc-q",
+            role: "Web Development intern",
+            duration: "Oct 2024 - Dec 2024",
+            description: "Created responsive websites using TypeScript and TailwindCss in NextJs. Collaborated with the design team to implement UI/UX improvements.",
+            logo: "docq.png" // Replace with actual logo path
         },
         {
-            company: "Company Two",
-            role: "Full Stack Developer",
-            duration: "Jun 2022 - Dec 2022",
-            description: "Developed and maintained web applications using React and Node.js. Implemented responsive designs and RESTful APIs.",
-            logo: "/company2-logo.png"
+            company: "Omdena VIT Bhopal Chapter",
+            role: "Junior ML Engineer",
+            duration: "Oct 2024 - Dec 2024",
+            description: "Led the development of AI Chatbot for Bhopal BRTS Navigation. Implemented deep learning solutions using PyTorch and TensorFlow.",
+            logo: "omdena.png"
         },
         {
-            company: "Company Three",
-            role: "Software Engineer Intern",
-            duration: "Jan 2022 - May 2022",
-            description: "Assisted in developing microservices architecture. Worked on backend development using Python and PostgreSQL.",
-            logo: "/company3-logo.png"
+            company: "AI Club VIT Bhopal",
+            role: "Web Team Member",
+            duration: "Apr 2024 - Present",
+            description: "As a web team member, I contributed to club's new website and also helps with the technical stuff during the club event.",
+            logo: "aiclublogo.png"
         },
         {
-            company: "Company Four",
-            role: "Web Development Intern",
-            duration: "Aug 2021 - Dec 2021",
-            description: "Created responsive websites using HTML, CSS, and JavaScript. Collaborated with the design team to implement UI/UX improvements.",
-            logo: "/company4-logo.png"
+            company: "Ecell VIT Bhopal",
+            role: "Technical Team Member",
+            duration: "Nov 2024 - Present",
+            description: "Created club website using JavaScript. Collaborated with the design team to implement UI/UX improvements.",
+            logo: "ecell.png"
         },
         {
-            company: "Company Five",
-            role: "Research Assistant",
-            duration: "May 2021 - Jul 2021",
-            description: "Conducted research on AI algorithms and published findings. Implemented prototype solutions using Python.",
-            logo: "/company5-logo.png"
+            company: "IEEE VIT Bhopal Chapter",
+            role: "Technical Team Member",
+            duration: "May 2024 - Present",
+            description: "Organize technical events and learn working as a team.",
+            logo: "ieee.png"
         }
     ];
 
@@ -63,7 +63,7 @@ const Experience = () => {
 
                         {/* Title */}
                         <div className={`${cardBg} p-4 rounded-2xl transition-colors duration-200`}>
-                            <h1 className={`text-2xl md:text-3xl ${textColor} font-medium`}>My Experience</h1>
+                            <h1 className={`text-2xl md:text-2xl ${textColor} font-medium`}>Work Experience</h1>
                         </div>
 
                         {/* Experience Grid */}
@@ -75,7 +75,7 @@ const Experience = () => {
                                 >
                                     <div className="flex flex-col md:flex-row items-start gap-4 p-5">
                                         {/* Company Logo */}
-                                        <div className="w-16 h-16 md:w-24 md:h-24 flex-shrink-0">
+                                        <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
                                             <img
                                                 src={exp.logo}
                                                 alt={`${exp.company} logo`}
@@ -86,17 +86,17 @@ const Experience = () => {
                                         {/* Experience Details */}
                                         <div className="flex-1">
                                             <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                                                <h2 className={`text-lg md:text-xl ${textColor} font-medium`}>
+                                                <h3 className={`text-lg md:text-lg ${textColor} font-medium`}>
                                                     {exp.company}
-                                                </h2>
+                                                </h3>
                                                 <span className={`${mutedText} text-sm`}>
                                                     {exp.duration}
                                                 </span>
                                             </div>
-                                            <h3 className={`${textColor} text-base md:text-lg mb-2`}>
+                                            <h4 className={`${textColor} text-base md:text-base mb-2`}>
                                                 {exp.role}
-                                            </h3>
-                                            <p className={`${mutedText} text-sm md:text-base leading-relaxed`}>
+                                            </h4>
+                                            <p className={`${mutedText} text-sm md:text-sm leading-relaxed`}>
                                                 {exp.description}
                                             </p>
                                         </div>
