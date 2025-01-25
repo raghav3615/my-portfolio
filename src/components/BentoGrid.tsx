@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Navbar from './Navbar';
 import { Mail, Twitter, Instagram, Linkedin, Github, Slack, ArrowUpRight, Moon, Sun, Copy, Check } from 'lucide-react';
 import { FaDiscord as Discord } from "react-icons/fa";
 
@@ -16,7 +17,6 @@ const BentoGrid = () => {
     const mutedText = darkMode ? 'text-neutral-500' : 'text-gray-500';
     const inputBg = darkMode ? 'bg-[#2C2C2E]' : 'bg-gray-100';
     const borderColor = darkMode ? 'border-[#2C2C2E]' : 'border-gray-200';
-
     const projects = [
         {
           id: 1,
@@ -81,9 +81,14 @@ const BentoGrid = () => {
 
     return (
         <div className={`min-h-screen p-4 md:p-8 ${bgColor} transition-colors duration-200`}>
-            <div className="max-w-4xl mx-auto">
+             <Navbar 
+                darkMode={darkMode} 
+                setDarkMode={setDarkMode} 
+            />
+            <div className="max-w-4xl mx-auto pt-16">
                 <div className={`border ${borderColor} rounded-3xl p-2 md:p-4 bg-[#141414] transition-all duration-200`}>
                     <div className="grid grid-cols-4 md:grid-cols-12 gap-2 md:gap-3">
+                        
                         {/* Intro Card */}
                         <div className={`${cardBg} p-4 md:p-6 rounded-2xl col-span-4 md:col-span-6 transition-colors duration-200`}>
                             <div className="flex items-center gap-4">
